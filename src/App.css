@@ -1,0 +1,191 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Styles for Banner.js */
+.banner-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  /* height: 100vh; */
+  background-color: #f0f0f0;
+}
+
+.banner-content {
+  flex: 1;
+  padding-right: 20px;
+}
+
+.headline {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.description {
+  font-size: 16px;
+}
+
+.banner-image {
+  flex: 1;
+  max-width: 400px;
+}
+
+.banner-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  mix-blend-mode: multiply;
+}
+
+/* Styles for the Search Form */
+.search-form {
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  flex: 1;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.search-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.search-button:hover {
+  background-color: #0056b3;
+}
+
+.reset-button {
+  background-color: #ccc;
+  color: #fff;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.reset-button:hover {
+  background-color: #999;
+}
+
+/* Styles for ReactPaginate */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+}
+
+.pagination li {
+  margin: 0 5px;
+  cursor: pointer;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.pagination li.active {
+  background-color: #007bff;
+  color: #fff;
+}
+
+/* Styles for grid-container */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-gap: 50px;
+  margin-top: 50px;
+}
+
+.grid-item {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.grid-item:hover {
+  background-color: #f9f9f9;
+}
+
+/* Styles for popup */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 80%;
+}
+
+.popup h3 {
+  margin-top: 0;
+}
+
+.popup p {
+  margin: 5px 0;
+}
+
+.popup button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.popup button:hover {
+  background-color: #0056b3;
+}
+
+/* Styles for Footer.js */
+.footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+.footer p {
+  margin: 0;
+}
+
+.footer p a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer p a:hover {
+  text-decoration: underline;
+}

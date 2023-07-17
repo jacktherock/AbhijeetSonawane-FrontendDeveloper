@@ -1,6 +1,6 @@
 import React, { useReducer, createContext, useContext, useEffect } from "react";
-import { reducer, initialState } from "./reducers/Reducer";
-import { getCapsules } from "./network/agent";
+import { reducer, initialState } from "../reducers/Reducer";
+import { getCapsules } from "../network/agent";
 
 const AppContext = createContext();
 
