@@ -3,6 +3,7 @@ import { useGlobalContext } from '../context/Context';
 import SearchForm from './SearchForm';
 import Pagination from './Pagination';
 import Popup from './Popup';
+import spinner from '../assets/spinner.gif';
 
 const DataGrid = () => {
     const { hits, loading, error } = useGlobalContext();
@@ -48,12 +49,11 @@ const DataGrid = () => {
         setCurrentPage(selected);
     };
 
-    if (loading) return (<h2>Loading...</h2>);
+
     if (error) return (<h2 className='text-danger'>Error: {error.message}</h2>);
-    
+
     return (
-        <>
-            <h2>Data</h2>
+        <div className="container mx-auto px-8 py-8">
 
             {/* Search form */}
             <SearchForm
@@ -64,36 +64,45 @@ const DataGrid = () => {
             />
 
             {/* Data Grid */}
-            {filteredHits.length === 0 ? (
-                <p>No matching data found.</p>
-            ) : (
-                <>
-                    <div className="grid-container">
-                        {filteredHits.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage).map((item) => {
-                            const { capsule_serial, status, original_launch, type, details, reuse_count, landings } = item;
-                            return (
-                                <div key={capsule_serial ? capsule_serial : "No capsule_serial Found"} className="grid-item" onClick={() => openPopup(item)}>
-                                    <h3>{details ? details : "No Detail Found"}</h3>
-                                    <p>{status ? status : "No status Found"}</p>
-                                    <p>{reuse_count ? reuse_count : "No reuse_count Found"}</p>
-                                    <p>{landings ? landings : "No landings Found"}</p>
-                                    <p>{type ? type : "No type Found"}</p>
-                                    <p>{original_launch ? original_launch : "No original_launch Found"}</p>
-                                </div>
-                            );
-                        })}
+            {loading ?
+                <div className="p-5 flex items-center justify-center">
+                    <img src={spinner} alt="loading" />
+                </div>
+                : filteredHits.length === 0 ? (
+                    <div className="p-5 flex items-center justify-center">
+                        <div className="grid-item bg-red-500 shadow-2xl rounded-lg p-6 mb-6 w-96 hover:shadow-xl transition duration-300">
+                            <p className="text-center text-white text-xl font-bold uppercase">No matching data found.</p>
+                        </div>
                     </div>
+                ) : (
+                    <>
+                        <div className="grid-container grid grid-cols-2 gap-16 p-8">
+                            {filteredHits.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage).map((item) => {
+                                const { capsule_serial, status, details } = item;
+                                return (
+                                    <div key={capsule_serial ? capsule_serial : "Not Found"} className="grid-item hover:cursor-pointer bg-white shadow-2xl rounded-lg p-8 mb-6 hover:shadow-xl transition duration-300 relative" onClick={() => openPopup(item)}>
+                                        <h3 className="text-xl font-bold mb-2 w-5/6">{details ? details : "No Detail Found"}</h3>
+                                        <div className="absolute top-2 right-2 px-2 py-1 bg-blue-500 text-white text-xs rounded">{status ? status : "Not  Found"}</div>
+                                        <div className="flex items-center justify-between mt-2 mx-6">
+                                            <button className="text-blue-500 text-xs -ml-3">
+                                                Show More
+                                            </button>
+                                        </div>
+                                    </div>
+                                );
+                            })}
+                        </div>
 
-                    {/* Pagination */}
-                    <Pagination pageCount={pageCount} handlePageChange={handlePageChange} />
-                </>
-            )}
+                        {/* Pagination */}
+                        <Pagination pageCount={pageCount} handlePageChange={handlePageChange} />
+                    </>
+                )}
 
             {/* Popup */}
             {popupData && (
                 <Popup popupData={popupData} closePopup={closePopup} />
             )}
-        </>
+        </div>
     );
 };
 

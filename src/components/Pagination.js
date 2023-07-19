@@ -9,8 +9,13 @@ const Pagination = ({ pageCount, handlePageChange }) => {
             breakLabel={"..."}
             pageCount={pageCount}
             onPageChange={handlePageChange}
-            containerClassName={"pagination"}
-            activeClassName={"active"}
+            containerClassName={"flex items-center justify-center mt-6"}
+            previousLinkClassName={"px-4 py-2 rounded-l-lg border border-gray-400 bg-white text-gray-600 hover:bg-gray-100"}
+            nextLinkClassName={"px-4 py-2 rounded-r-lg border border-gray-400 bg-white text-gray-600 hover:bg-gray-100"}
+            pageLinkClassName={"px-4 py-2 border border-gray-400 bg-white text-gray-600 hover:bg-gray-100"}
+            activeLinkClassName={"px-4 py-2 border border-blue-500 font-bold text-blue-500"}
+            breakLinkClassName={"px-4 py-2 border border-gray-400 bg-white text-gray-600 hover:bg-gray-100"}
+            disabledClassName={"hidden"}
         />
     );
 };
