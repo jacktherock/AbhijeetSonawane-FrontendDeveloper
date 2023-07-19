@@ -4,7 +4,7 @@
 
 - This is a dashboard that displays information about SpaceX capsule launches.
 - It is built using `React`, `Context API`, `Tailwind CSS` and the `SpaceX API`.
-- It is deployed on `Netlify` and can be accessed here: [spacex-dashboard](https://dashspacex.netlify.app/).
+- It is deployed on `Netlify` and can be accessed here: https://dashspacex.netlify.app/
 
 ## Installation
 
