@@ -63,7 +63,7 @@ const DataGrid = () => {
                 handleReset={handleReset}
             />
 
-            {/* Data Grid */}
+            {/* Data */}
             {loading ?
                 <div className="p-5 flex items-center justify-center">
                     <img src={spinner} alt="loading" />
@@ -76,7 +76,11 @@ const DataGrid = () => {
                     </div>
                 ) : (
                     <>
-                        <div className="grid-container grid grid-cols-2 gap-16 p-8">
+                        {/* Pagination */}
+                        <Pagination pageCount={pageCount} handlePageChange={handlePageChange} />
+
+                        {/* Data Grid */}
+                        <div className="grid-container grid grid-cols-2 gap-16 pt-20 px-8 pb-10">
                             {filteredHits.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage).map((item) => {
                                 const { capsule_serial, status, details } = item;
                                 return (
@@ -92,11 +96,9 @@ const DataGrid = () => {
                                 );
                             })}
                         </div>
-
-                        {/* Pagination */}
-                        <Pagination pageCount={pageCount} handlePageChange={handlePageChange} />
                     </>
-                )}
+                )
+            }
 
             {/* Popup */}
             {popupData && (
