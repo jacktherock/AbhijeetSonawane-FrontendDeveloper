@@ -11,7 +11,7 @@
 1. Clone the repository and navigate to the directory:
 
 ```bash
-git clone https://github.com/jacktherock/spacex-dashboard.git
+git clone https://github.com/jacktherock/AbhijeetSonawane-FrontendDeveloper.git
 ```
 
 ```bash
